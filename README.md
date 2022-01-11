@@ -21,13 +21,22 @@ SELECT d.id from documents d NOT IN (SELECT DISTINCT document_id FROM pages)
 
 Return id’s from document table thats not in the results of the ⇒ return distinctly of document_id values from the pages table.
 
-First SELECT returns all the documents. Second SELECT returns all documents with pages. The NOT IN condition removes the values of the second SELECT from the first SELECT. So from the full list of all documents, I removed all the documents with pages, which leaves me with all the documents without any pages.
+First SELECT returns all the documents ⇒ 
+Second SELECT returns all documents with pages ⇒ 
+The NOT IN condition removes the values of the second SELECT from the first SELECT ⇒ 
+So from the full list of all documents, I removed all the documents with pages ⇒ 
+Which leaves me with all the documents without any pages.
 
 **2. Write a SQL query which returns a list of report titles and the total number of pages in the report. reports which do not have pages may be ignored.**
 ```
 SELECT r.title, COUNT(p.id) FROM reports r JOIN documents d ON d.report_id = r.id JOIN pages p ON p.document_id = d.id GROUP BY r.title HAVING COUNT(p.id) > 0;
 ```
-Return report titles and page counts ⇒ Joining reports table and documents table, matching the report id and the documents report_id, returning a reports table which has id, title, corresponding name, and corresponding filetype ⇒ Join previous table with pages table, matching the pages document_id to the document id, returning a table with report_id, document_id, page_id, with the corresponding title, name, filetype, body, and footnote ⇒ What we need is the report title and page_ids (which we returned in step 1) ⇒ GROUP BY r.title will return the page counts for each report title in the table ⇒ HAVING COUNT(p.id)>0 ignores reports that do not have pages. 
+Return report titles and page counts ⇒ 
+Joining reports table and documents table, matching the report id and the documents report_id, returning a reports table which has id, title, corresponding name, and corresponding filetype ⇒ 
+Join previous table with pages table, matching the pages document_id to the document id, returning a table with report_id, document_id, page_id, with the corresponding title, name, filetype, body, and footnote ⇒ 
+What we need is the report title and page_ids (which we returned in step 1) ⇒ 
+GROUP BY r.title will return the page counts for each report title in the table ⇒ 
+HAVING COUNT(p.id)>0 ignores reports that do not have pages. 
 
 **3. Assume a new feature needs to be developed to allow commenting on reports, documents, and pages. How would you implement support for this in the schema, and what considerations would you have in determining your approach?**
 
