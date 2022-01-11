@@ -2,6 +2,7 @@
 ## PART 1
 
 **Assumptions**
+
 We’ve created a Postgres database which includes reports, documents and pages tables. reports has a one-to-many relationship with documents, and documents has a one-to-many relationship with pages. The database schema is outlined in Appendix A. Additionally, you may assume:
 
 ● All non-primary key database columns default to null.
@@ -38,9 +39,11 @@ By creating a separate comment table, we avoid creating a potential many-to-many
 ## PART 2
 
 **Assumptions** 
+
 document, page, and report entities are represented as objects in our front-end data store. The store is a single object whose structure may be ascertained from the example in Appendix B. You may assume that entity objects are always keyed by id.
 
 **Prompt**
+
 Given a store like the example in Appendix B, please answer the following questions using vanilla ES6+ Javascript. You may define and reuse auxiliary functions to aid your responses.
 <hr>
 **1. Return an object which maps report_ids to the total number of pages in the report.**
