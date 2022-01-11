@@ -89,6 +89,25 @@ getPages(store)
 ```
 
 2. Please write a search function which accepts a string and returns a list of reports. Any string field in our schema may contain relevant text matches, excluding documents.filetype.
+```
+function searchReport(store, str) {
+    str = str.toLowerCase()
+  const results = [];
+  for (const key in store) {
+    for (const secondKey in store[key]) {
+      if (typeof store[key][secondKey] == "object") {
+        for (const thirdKey in store[key][secondKey]) {
+          let text = store[key][secondKey][thirdKey];
+          if (typeof text == "string" && text.toLowerCase().includes(str)) {
+            results.push(store[key][secondKey]);
+          }
+        }
+      }
+    }
+  }
+  return results;
+}
+```
 
 3. We’ve replaced your solution from part (2) with an asynchronous search function which loads its data from an API.
 a. Ignoring the body of the function, how would its signature change? Feel free to propose multiple options, and demonstrate how the asynchronous function could be used to fetch search results.
