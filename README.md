@@ -55,6 +55,7 @@ document, page, and report entities are represented as objects in our front-end 
 
 Given a store like the example in Appendix B, please answer the following questions using vanilla ES6+ Javascript. You may define and reuse auxiliary functions to aid your responses.
 <hr>
+
 **1. Return an object which maps report_ids to the total number of pages in the report.**
 
 ```
