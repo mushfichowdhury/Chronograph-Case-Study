@@ -34,7 +34,6 @@ I would add a new table for comments, with primary key id and foreign keys repor
 
 By creating a separate comment table, we avoid creating a potential many-to-many relationship among the three report/document/page tables, and this would be the more normalized form. In a relational database you want to avoid a many to many relationship because it will create data redundancies when you query data. The best practice is to create a bridge table, so instead of a many to many, you create a third table which creates two one to many’s which can be queried easier. Comments is one to many for documents, pages, and reports. Each report has many comments, same with documents and pages.
 
-	 
 
 ## PART 2
 
@@ -47,6 +46,7 @@ document, page, and report entities are represented as objects in our front-end 
 Given a store like the example in Appendix B, please answer the following questions using vanilla ES6+ Javascript. You may define and reuse auxiliary functions to aid your responses.
 <hr>
 **1. Return an object which maps report_ids to the total number of pages in the report.**
+
 ```
 function getPages(obj) {
   let documents = obj['document']
