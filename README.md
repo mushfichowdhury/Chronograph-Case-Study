@@ -5,9 +5,11 @@
 We’ve created a Postgres database which includes reports, documents and pages tables. reports has a one-to-many relationship with documents, and documents has a one-to-many relationship with pages. The database schema is outlined in Appendix A. Additionally, you may assume:
 
 ● All non-primary key database columns default to null.
+
 ● All primary and foreign keys are integers.
 
 **Prompt**
+
 Please write a query to answer each of the following questions. Both accuracy and query performance are critical. Please document any assumptions you make in addressing these questions.
 1. Write a SQL query to find the ids of all documents which do not have any pages.
 
