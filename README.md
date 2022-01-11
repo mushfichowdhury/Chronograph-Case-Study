@@ -59,10 +59,10 @@ Given a store like the example in Appendix B, please answer the following questi
 **1. Return an object which maps report_ids to the total number of pages in the report.**
 
 ```
-function getPages(obj) {
-  let documents = obj['document']
-  let pages = obj['page']
-  let reports = obj['report']
+function getPages(store) {
+  let documents = store['document']
+  let pages = store['page']
+  let reports = store['report']
   let reportKeys = []
   let documentKeys = {}
   let results = {}
@@ -81,6 +81,7 @@ function getPages(obj) {
       results[docKey] += 1
     }
   }
+  console.log(results)
 }
 
 getPages(store)
