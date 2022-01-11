@@ -42,36 +42,31 @@ document, page, and report entities are represented as objects in our front-end 
 
 **Prompt**
 Given a store like the example in Appendix B, please answer the following questions using vanilla ES6+ Javascript. You may define and reuse auxiliary functions to aid your responses.
-
-
-
+<hr>
 **1. Return an object which maps report_ids to the total number of pages in the report.**
 ```
 function getPages(obj) {
-	let documents = obj['document']
-	let pages = obj['page']
-	let reports = obj['report']
-	let reportKeys = []
-	let documentKeys = {}
-	let results = {}
-	for (var key in reports) {
-		reportKeys.push(reports[key]['id'])
-		results[reports[key]['id']] = 0
-	}
-	for (var key in documents) {
-		if (reportKeys.includes(documents[key]['report_id'])) {
-			documentKeys[documents[key]['id']] = documents[key]['report_id']
-		}
-	}
-	for (var key in pages) {
-		if (documentKeys.hasOwnProperty(pages[key]['document_id'])) {
-			let docKey  = documentKeys[pages[key]['document_id']]
-			results[docKey] += 1
-		}
-	}
-	console.log("report keys", reportKeys)
-	console.log("document keys", documentKeys)
-	console.log("results", results)
+  let documents = obj['document']
+  let pages = obj['page']
+  let reports = obj['report']
+  let reportKeys = []
+  let documentKeys = {}
+  let results = {}
+  for (var key in reports) {
+    reportKeys.push(reports[key]['id'])
+    results[reports[key]['id']] = 0
+  }
+  for (var key in documents) {
+    if (reportKeys.includes(documents[key]['report_id'])) {
+      documentKeys[documents[key]['id']] = documents[key]['report_id']
+    }
+  }
+  for (var key in pages) {
+    if (documentKeys.hasOwnProperty(pages[key]['document_id'])) {
+      let docKey  = documentKeys[pages[key]['document_id']]
+      results[docKey] += 1
+    }
+  }
 }
 
 getPages(store)
@@ -80,7 +75,7 @@ getPages(store)
 **2. Please write a search function which accepts a string and returns a list of reports. Any string field in our schema may contain relevant text matches, excluding documents.filetype.**
 ```
 function searchReport(store, str) {
-    str = str.toLowerCase()
+  str = str.toLowerCase()
   const results = [];
   for (const key in store) {
     for (const secondKey in store[key]) {
