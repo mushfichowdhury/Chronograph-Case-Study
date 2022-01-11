@@ -13,9 +13,10 @@ We’ve created a Postgres database which includes reports, documents and pages 
 
 Please write a query to answer each of the following questions. Both accuracy and query performance are critical. Please document any assumptions you make in addressing these questions.
 <hr>
+
 **1. Write a SQL query to find the ids of all documents which do not have any pages.**
 ```
-SELECT d.id from documents d NOT IN (SELECT DISTINCT document_id FROM pages);
+SELECT d.id from documents d NOT IN (SELECT DISTINCT document_id FROM pages)
 ```
 
 Return id’s from document table thats not in the results of the ⇒ return distinctly of document_id values from the pages table.
