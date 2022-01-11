@@ -97,7 +97,34 @@ function searchReport(store, str) {
 ```
 
 **3. We’ve replaced your solution from part (2) with an asynchronous search function which loads its data from an API.**
-	a. Ignoring the body of the function, how would its signature change? Feel free to propose multiple options, and demonstrate how the asynchronous function could be used to fetch search results.
-	b. If the asynchronous function can produce errors, how would those be handled?
+
+a. Ignoring the body of the function, how would its signature change? Feel free to propose multiple options, and demonstrate how the asynchronous function could be used to fetch search results.
+
+I don't believe the function's signature would change too drastically. Input arguments would still need a string and the return type would remain the same. Since we are now fetching the data from an API, we would need to have an async/await function to save the data to a variable, similar to how we have the store object. Once the data is successfully returned, we can search similar to the previous iteration of the function, as long as the structure of the data is similar. 
+
+b. If the asynchronous function can produce errors, how would those be handled?
+	
+You can either wrap the function in a try/catch:
+```
+async function search() {
+  try {
+    // code that might produce an error (like a rejected promise)
+  } catch (err) {
+    console.log(err)
+  }
+}
+```
+Or you can use conditional rendering to log errors:
+```
+async function search() {
+  if(this.state.data != null) {
+    // code
+  } else if (typeof this.state.data["document"] == "object") {
+    // code
+  } else {
+    // handle error
+  }
+}
+```
 
 
