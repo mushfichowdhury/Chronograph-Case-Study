@@ -48,7 +48,7 @@ I would add a new table for comments, with primary key id and foreign keys repor
 There are two types of character data types. Char is static and has to be a specific length that you specify.
 By specifying varchar, user can type whatever they want and it will trim down any unnecessary blank space. Unlike char which doesn’t trim, you can set varchar counts to 1000, but if you use only 600, it will trim the 400 of blank space. 
 
-##PART 2
+## PART 2
 
 **Assumptions** 
 document, page, and report entities are represented as objects in our front-end data store. The store is a single object whose structure may be ascertained from the example in Appendix B. You may assume that entity objects are always keyed by id.
